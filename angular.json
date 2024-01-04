@@ -3,11 +3,18 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "clipz": {
+    "ClipzApp": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "style": "scss",
+          "standalone": false
+        },
+        "@schematics/angular:directive": {
+          "standalone": false
+        },
+        "@schematics/angular:pipe": {
+          "standalone": false
         }
       },
       "root": "",
@@ -17,7 +24,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/clipz",
+            "outputPath": "dist/clipz-app",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -67,10 +74,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "clipz:build:production"
+              "buildTarget": "ClipzApp:build:production"
             },
             "development": {
-              "buildTarget": "clipz:build:development"
+              "buildTarget": "ClipzApp:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -78,7 +85,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "clipz:build"
+            "buildTarget": "ClipzApp:build"
           }
         },
         "test": {
@@ -104,6 +111,6 @@
     }
   },
   "cli": {
-    "analytics": "14545bde-1464-4cf8-a559-c6385d28891c"
+    "analytics": false
   }
 }
